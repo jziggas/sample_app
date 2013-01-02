@@ -1,4 +1,6 @@
 SampleApp::Application.routes.draw do
+  get "users/new"
+
 # matches ’/about’ and routes it to the about action in the StaticPages controller.
 # about_path => '/about'
 # about_url  => 'http://localhost:3000/about'
