@@ -1,9 +1,15 @@
 SampleApp::Application.routes.draw do
-  get "static_pages/home"
+# matches ’/about’ and routes it to the about action in the StaticPages controller.
+# about_path => '/about'
+# about_url  => 'http://localhost:3000/about'
 
-  get "static_pages/help"
+match '/about', to: 'static_pages#about' 
 
-  get "static_pages/about"
+match '/help', to: 'static_pages#help'
+
+match '/contact', to: 'static_pages#contact'
+
+root to: 'static_pages#home'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
