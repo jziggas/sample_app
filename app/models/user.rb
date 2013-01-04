@@ -15,7 +15,10 @@ class User < ActiveRecord::Base
 # As long as there is a password_digest column in the database, adding this one method to our model gives us a secure way to create and authenticate new users.
   has_secure_password
 
-  before_save { |user| user.email = email.downcase }
+  # Old way
+  # before_save { |user| user.email = email.downcase }
+  # New way
+  before_save { self.email.downcase! }
 
   validates :name, presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

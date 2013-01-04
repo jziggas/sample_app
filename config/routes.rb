@@ -1,5 +1,6 @@
 SampleApp::Application.routes.draw do
-  get "users/new"
+  # automatically ensures that our Rails application responds to the RESTful URIs from Table 7.1 (create/show/destroy/etc)
+  resources :users
 
   root to: 'static_pages#home'
 
