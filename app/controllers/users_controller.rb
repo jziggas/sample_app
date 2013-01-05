@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
+      sign_in @user
       flash[:success] = "Welcome to the Sample App!"
       # The default action for rails is to render the corresponding 'create' view. Instead, we will redirect to the newly created user profile page.
       redirect_to @user
